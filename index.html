@@ -635,17 +635,27 @@ main { padding-top: 30px; min-height: 100vh; padding-bottom: 30px; }
   .education-window .education-summary li { border: 0; padding-left: 0; }
 }
 
-/* Research shares the full-width overview treatment of education and teaching. */
+/* Research and all five publications share a full-width overview row. */
 .compact-index .research-window { grid-column: 1 / -1; }
-.research-summary { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; margin: 15px 0; }
-.research-summary > div { padding-left: 20px; border-left: 1px solid var(--line); min-width: 0; }
-.research-summary > div:first-child { padding-left: 0; border-left: 0; }
+.research-summary { display: grid; grid-template-columns: 1fr 2fr; gap: 30px; margin: 15px 0; }
+.research-topics { padding-right: 26px; border-right: 1px solid var(--line); min-width: 0; }
 .research-summary h3 { font-size: 12px; font-weight: 600; line-height: 1.5; }
+.research-topics h3:not(:first-child) { margin-top: 20px; }
 .compact-index .research-summary p { margin: 6px 0 0; }
-@media (max-width: 600px) {
-  .research-summary { grid-template-columns: 1fr; gap: 14px; }
-  .research-summary > div { padding: 12px 0 0; border-left: 0; border-top: 1px solid var(--line); }
-  .research-summary > div:first-child { padding-top: 0; border-top: 0; }
+.overview-publications { list-style: none; padding: 0; margin: 11px 0 0; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px 24px; }
+.overview-publications li { min-width: 0; }
+.overview-publications a, .overview-publications strong { display: block; font-size: 11px; line-height: 1.55; font-weight: 600; }
+.overview-publications li > span { display: block; margin-top: 5px; color: #526773; font-size: 10px; line-height: 1.6; }
+@media (max-width: 860px) {
+  .research-summary { grid-template-columns: 1fr; gap: 18px; }
+  .research-topics { padding: 0 0 17px; border-right: 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; }
+  .research-topics h3 { grid-row: 1; }
+  .research-topics h3:not(:first-child) { margin-top: 0; }
+}
+@media (max-width: 520px) {
+  .overview-publications { grid-template-columns: 1fr; gap: 15px; }
+  .overview-publications a, .overview-publications strong { font-size: 12px; }
+  .overview-publications li > span { font-size: 11px; }
 }
 
 /* A quiet blue mat and fine edge frame the supplied formal portrait. */
@@ -711,9 +721,8 @@ main { padding-top: 30px; min-height: 100vh; padding-bottom: 30px; }
     
     <article class="index-cell research-window"><a class="index-title" href="#research"><h2>Research & publications</h2><b aria-hidden="true">↗</b></a>
       <div class="research-summary">
-        <div><h3>Doctoral research</h3><p>Graph learning · 3D scene representations · RF channel prediction</p></div>
-        <div><h3>M.Phil thesis</h3><p>A Study on Simplifying Graph Convolutional Networks</p></div>
-        <div><h3>Publications & contributions</h3><p>Two journal articles · Two accepted conference presentations · One contribution under review</p></div>
+        <div class="research-topics"><h3>Doctoral research</h3><p>Graph learning · 3D scene representations · RF channel prediction</p><h3>M.Phil thesis</h3><p><a href="https://drive.google.com/file/d/1PplAjn6zd93mBy2rbOxn9jhkqsgtey-j/view?usp=sharing" target="_blank" rel="noopener">A Study on Simplifying Graph Convolutional Networks ↗</a></p></div>
+        <div class="research-papers"><h3>Publications & contributions</h3><ul class="overview-publications"><li><a href="https://doi.org/10.3934/math.2026585" target="_blank" rel="noopener">Local face metric dimension: a new resolvability parameter for planar graphs ↗</a><span>AIMS Mathematics · Journal article · 2026</span></li><li><a href="https://doi.org/10.1016/j.cam.2026.117633" target="_blank" rel="noopener">Enhanced S-box design using hybrid sinusoidal rational exponential map with optimization technique ↗</a><span>Journal of Computational and Applied Mathematics · Journal article · 2026</span></li><li><strong>RFLAM: Design Issues for Generative Models of Time-Varying Massive MIMO Channels in Factory-of-the-Future Environments</strong><span>IEEE BalkanCom 2026 · Accepted for presentation</span></li><li><strong>SceneSense: Scene-Conditioned Generative AI for RF Channel Prediction</strong><span>IEEE BalkanCom 2026 · Accepted for presentation</span></li><li><strong>Predictive propagation modeling guided by sensor-driven multimodal FoF scene assessment</strong><span>WInnAI 2026 · Under review</span></li></ul></div>
       </div>
       <a class="index-open" href="#research">Research, thesis & papers →</a></article>
     <article class="index-cell"><a class="index-title" href="#lectures"><h2>Recorded lectures</h2><b aria-hidden="true">↗</b></a><p>200+ PCTB lessons · Urdu language<br>Zero Axioms mathematics & ML videos</p><a class="index-open" href="#lectures">Selected lectures →</a></article>
