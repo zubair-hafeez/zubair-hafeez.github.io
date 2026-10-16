@@ -664,6 +664,95 @@ main { padding-top: 30px; min-height: 100vh; padding-bottom: 30px; }
   .identity img { width: 57px; height: 66px; padding: 3px; border-radius: 7px; }
 }
 
+/* Compact inline disclosures preserve the surrounding overview. */
+.index-heading { margin: 0; font: inherit; }
+.index-toggle { border: 0; background: none; padding: 0; width: 100%; text-align: left; font: inherit; cursor: pointer; }
+.index-toggle > span { color: var(--ink); font-size: 16px; font-weight: 500; letter-spacing: -.2px; }
+.index-toggle > b { font-size: 20px; }
+.compact-index .inline-expanded { grid-column: 1 / -1; }
+.section-expansion { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }
+.inline-overview .inline-section { padding: 0; margin: 0; border: 0; max-width: none; }
+.inline-overview .inline-section .wrap { margin: 0; padding: 0; }
+.inline-overview .section-heading { margin-bottom: 12px; }
+.inline-overview .section-heading h2, .inline-overview .contact-top h2 { font-size: 18px; }
+.collapse-section { display: block; margin-top: 14px; padding: 5px 0; border: 0; background: none; color: var(--green); font-size: 11px; text-decoration: underline; text-underline-offset: 3px; }
+.index-toggle, .section-expansion { scroll-margin-top: 24px; }
+.inline-section p + p { margin-top: 9px; }
+.inline-section .rowan-feature { padding: 12px 0; gap: 20px; }
+.inline-section .semester { padding: 10px 0; }
+.inline-section .semester h4 { font-size: 14px; }
+.inline-section .rowan-intro h3 { font-size: 17px; margin: 6px 0 10px; }
+.inline-section .history { margin-top: 16px; }
+.inline-section .appointment { margin-top: 0; }
+.inline-section .appointment > summary { padding: 10px 0; }
+.inline-section .appointment-body { margin-bottom: 12px; }
+.inline-section .teaching-footnote { margin-top: 14px; padding-top: 12px; }
+.inline-section .education-list article { padding: 12px 0; gap: 18px; }
+.inline-section .education-list h3 { font-size: 16px; margin: 3px 0 5px; }
+.inline-section .education-list a { margin-top: 6px; }
+.inline-section .small-label { margin-bottom: 4px; }
+.inline-section .research-overview h3 { font-size: 17px; margin: 5px 0 8px; }
+.inline-section .research-overview p { font-size: 12px; }
+.inline-section .thesis-feature { grid-template-columns: 90px 1fr; gap: 18px; padding: 12px 0; margin-top: 14px; }
+.inline-section .thesis-feature h3 { font-size: 16px; margin: 5px 0 8px; }
+.inline-section .subsection-heading { margin: 16px 0 8px; }
+.inline-section .subsection-heading h3 { font-size: 17px; }
+.inline-section .publication { padding: 12px 0; gap: 12px; }
+.inline-section .publication h4 { font-size: 14px; }
+.inline-section .publication-meta { margin-bottom: 5px; }
+.inline-section .publication p { margin-top: 5px; }
+.inline-section .project { padding: 12px 0; }
+.inline-section .project-body h3 { font-size: 16px; margin-bottom: 6px; }
+.inline-section .project-body > a { padding-top: 5px; }
+.inline-section .skill-grid article { padding: 10px 0; }
+.inline-section .skill-grid h4 { margin: 4px 0; }
+.inline-section .community-layout { gap: 22px; }
+.inline-section .community-events article { padding: 12px 0; }
+.inline-section .community-events h3 { margin: 5px 0 8px; font-size: 16px; }
+.inline-section .recognition li { padding: 8px 0; }
+.inline-section .credential-grid { gap: 18px; }
+.inline-section .credential { padding-bottom: 12px; }
+.inline-section .credential h3 { font-size: 16px; margin: 6px 0; }
+.inline-section .credential > a { margin-bottom: 10px; }
+.inline-section .lecture-library { gap: 18px; margin-top: 18px; }
+.inline-section .lecture-list > a { padding: 9px 0; }
+/* Fill the research row instead of leaving a tall empty column. */
+.research-summary { display: block; margin: 11px 0; }
+.research-topics { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 22px; padding: 0 0 10px; border-right: 0; border-bottom: 1px solid var(--line); }
+.research-topics h3 { grid-row: 1; }
+.research-topics h3:not(:first-child) { margin-top: 0; }
+.research-papers { margin-top: 10px; }
+.overview-publications { display: block; margin-top: 5px; }
+.overview-publications li { display: grid; grid-template-columns: 2fr 1fr; align-items: start; gap: 14px; padding: 7px 0; border-bottom: 1px solid #bacbd680; }
+.overview-publications li:last-child { border-bottom: 0; padding-bottom: 0; }
+.overview-publications li > span { margin-top: 0; }
+.overview-publications a, .overview-publications strong { font-size: 11px; font-weight: 500; }
+@media (max-width: 860px) {
+  .index-toggle, .section-expansion { scroll-margin-top: 115px; }
+  .index-toggle > span { font-size: 14px; }
+}
+@media (max-width: 520px) {
+  .overview-publications li { grid-template-columns: 1fr; gap: 3px; }
+  .inline-section .education-list article { grid-template-columns: 1fr; gap: 3px; }
+  .inline-section .appointment-body { margin-left: 0; }
+  .inline-section .thesis-feature { grid-template-columns: 64px 1fr; gap: 12px; }
+}
+@media print {
+  .inline-overview .portfolio-index { display: block !important; }
+  .inline-overview .section-expansion[hidden], .inline-overview .inline-section { display: block !important; }
+  .inline-overview .index-cell { display: block; }
+  .index-toggle, .collapse-section, .index-cell > p, .index-open { display: none !important; }
+}
+
+.index-toggle > span { font-family: var(--sans); }
+.inline-section > .section-heading, .inline-section > .wrap > .section-heading { display: none; }
+.compact-index .index-cell .inline-section p { margin: 5px 0 7px; font-size: 12px; }
+.inline-section .education-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 22px; }
+.inline-section .education-list article { grid-template-columns: 1fr; gap: 3px; padding: 10px 0; }
+.inline-section .education-list .education-year { padding-top: 0; }
+.inline-section .education-list .small-label { font-size: 10px; }
+@media (max-width: 600px) { .inline-section .education-list { grid-template-columns: 1fr; } }
+
 </style>
   
 </head>
@@ -936,34 +1025,103 @@ document.querySelectorAll('.timeline > article').forEach(article => {
   article.replaceWith(details);
 });
 
-function route(focusHeading = false) {
-  const rawHash = decodeURIComponent(location.hash.slice(1)) || 'home';
-  const hash = rawHash === 'background' ? 'education' : rawHash === 'evidence' ? 'community' : rawHash;
-  const target = document.getElementById(hash);
-  let section = sections.find(item => item === target || item.contains(target));
-  if (!section) section = document.getElementById('home');
-  sections.forEach(item => { item.hidden = item !== section; });
-  const title = section.querySelector('h1, h2');
-  document.title = `${section.id === 'home' ? 'Overview' : title.textContent} — Zubair Hafeez`;
-  document.body.dataset.view = section.id;
-  navigation.querySelectorAll('a').forEach(link => {
-    const active = link.hash === `#${section.id}`;
-    link.classList.toggle('active', active);
-    if (active) link.setAttribute('aria-current', 'page');
-    else link.removeAttribute('aria-current');
-  });
-  navigation.classList.remove('open');
-  menuButton.setAttribute('aria-expanded', 'false');
-  if (focusHeading) {
-    title.setAttribute('tabindex', '-1');
-    title.focus({ preventScroll: true });
+// Keep every overview card in place and reveal its complete content underneath.
+const home = document.getElementById('home');
+const index = home.querySelector('.portfolio-index');
+const disclosures = new Map();
+for (const section of sections.filter(item => item !== home)) {
+  const id = section.id;
+  const titleLink = index.querySelector(`.index-title[href="#${id}"]`);
+  const card = titleLink?.closest('.index-cell');
+  const label = titleLink?.querySelector('h2')?.textContent || section.querySelector('h2')?.textContent || id;
+  const panel = document.createElement('div');
+  panel.id = `${id}-expansion`;
+  panel.className = 'section-expansion';
+  panel.hidden = true;
+  navigation.querySelector(`a[href="#${id}"]`)?.setAttribute('aria-controls', panel.id);
+  let toggle;
+  if (card) {
+    const heading = document.createElement('h2');
+    heading.className = 'index-heading';
+    toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'index-title index-toggle';
+    const name = document.createElement('span');
+    name.textContent = label;
+    const indicator = document.createElement('b');
+    indicator.setAttribute('aria-hidden', 'true');
+    indicator.textContent = '+';
+    toggle.append(name, indicator);
+    toggle.setAttribute('aria-controls', panel.id);
+    toggle.setAttribute('aria-expanded', 'false');
+    heading.append(toggle);
+    titleLink.replaceWith(heading);
+    card.append(panel);
+    toggle.addEventListener('click', () => toggleSection(id, panel.hidden, true));
+  } else {
+    // Contact stays accessible from navigation without adding an overview card.
+    index.after(panel);
   }
-  if (focusHeading) window.scrollTo({ top: 0, behavior: 'instant' });
+  const close = document.createElement('button');
+  close.type = 'button';
+  close.className = 'collapse-section';
+  close.textContent = `Collapse ${label} −`;
+  close.addEventListener('click', () => toggleSection(id, false, true));
+  section.classList.add('inline-section');
+  section.hidden = false;
+  panel.append(section, close);
+  disclosures.set(id, { panel, card, toggle, label });
 }
 
-document.documentElement.classList.add('cv-app');
-window.addEventListener('hashchange', () => route(true));
-// Intercept in-page routes before the browser scrolls to the old document position.
+function updateControls() {
+  disclosures.forEach(({ panel, card, toggle }, id) => {
+    const expanded = !panel.hidden;
+    card?.classList.toggle('inline-expanded', expanded);
+    if (toggle) {
+      toggle.setAttribute('aria-expanded', String(expanded));
+      toggle.querySelector('b').textContent = expanded ? '−' : '+';
+    }
+    navigation.querySelector(`a[href="#${id}"]`)?.setAttribute('aria-expanded', String(expanded));
+  });
+}
+function remember(id) {
+  const expanded = [...disclosures].filter(([, value]) => !value.panel.hidden).map(([key]) => key);
+  history.pushState({ expanded }, '', `#${id}`);
+  document.title = `${id === 'home' ? 'Overview' : disclosures.get(id)?.label || 'Overview'} — Zubair Hafeez`;
+}
+function toggleSection(id, expanded, record = false) {
+  const item = disclosures.get(id);
+  if (!item) return;
+  item.panel.hidden = !expanded;
+  updateControls();
+  if (record) remember(expanded ? id : 'home');
+  navigation.classList.remove('open');
+  menuButton.setAttribute('aria-expanded', 'false');
+  navigation.querySelectorAll('a').forEach(link => link.classList.toggle('active', link.hash === `#${expanded ? id : 'home'}`));
+  if (!expanded && item.toggle) {
+    item.toggle.focus({ preventScroll: true });
+    item.toggle.scrollIntoView({ block: 'nearest', behavior: 'instant' });
+  }
+}
+function reveal(id, scroll = true) {
+  const aliases = { background: 'education', evidence: 'community' };
+  id = aliases[id] || id;
+  const target = document.getElementById(id);
+  const entry = [...disclosures].find(([key]) => key === id || document.getElementById(key).contains(target));
+  if (!entry) return;
+  const [key, item] = entry;
+  toggleSection(key, true);
+  if (scroll) {
+    (item.toggle || item.panel).scrollIntoView({ block: 'start', behavior: 'instant' });
+    item.toggle?.focus({ preventScroll: true });
+  }
+  return key;
+}
+
+document.documentElement.classList.add('cv-app', 'inline-overview');
+document.body.dataset.view = 'home';
+home.hidden = false;
+updateControls();
 document.addEventListener('click', event => {
   const link = event.target.closest('a[href^="#"]');
   if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
@@ -972,16 +1130,37 @@ document.addEventListener('click', event => {
     main.focus();
     return;
   }
-  const hash = link.hash.slice(1);
-  const recognized = document.getElementById(hash);
-  if (!recognized) return;
+  const id = decodeURIComponent(link.hash.slice(1));
+  if (id === 'home') {
+    event.preventDefault();
+    disclosures.forEach(item => { item.panel.hidden = true; });
+    updateControls();
+    remember('home');
+    home.scrollIntoView({ block: 'start', behavior: 'instant' });
+    navigation.querySelectorAll('a').forEach(item => item.classList.toggle('active', item === link));
+    return;
+  }
+  const target = document.getElementById(id);
+  if (!target) return;
   event.preventDefault();
-  if (location.hash !== link.hash) history.pushState(null, '', link.hash);
-  route(true);
+  const key = reveal(id, !link.closest('.index-cell'));
+  if (key) remember(key);
 });
-window.addEventListener('popstate', () => route(true));
-route();
-
+function restore() {
+  if (history.state?.expanded) {
+    const expanded = new Set(history.state.expanded);
+    disclosures.forEach((item, id) => { item.panel.hidden = !expanded.has(id); });
+    updateControls();
+  } else {
+    disclosures.forEach(item => { item.panel.hidden = true; });
+    updateControls();
+    reveal(decodeURIComponent(location.hash.slice(1)), false);
+  }
+}
+window.addEventListener('popstate', restore);
+window.addEventListener('hashchange', () => reveal(decodeURIComponent(location.hash.slice(1))));
+restore();
+document.title = `${disclosures.get(location.hash.slice(1))?.label || 'Overview'} — Zubair Hafeez`;
 
 </script>
 </body>
